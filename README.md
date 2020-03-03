@@ -1,20 +1,20 @@
-# Loading Pre-Trained Models
+##Loading Pre-Trained Models
 
 Make sure to click the button below before you get started to source the correct environment.
 
 In this exercise, you'll work to download and load a few of the pre-trained models available in the OpenVINO toolkit.
 
-# First, you can navigate to the Pre-Trained Models list in a separate window or tab, as well as the page that gives all of the model names here.
+##First, you can navigate to the Pre-Trained Models list in a separate window or tab, as well as the page that gives all of the model names here.
 
 Your task here is to download the below three pre-trained models using the Model Downloader tool, as detailed on the same page as the different model names. Note that you do not need to download all of the available pre-trained models - doing so would cause your workspace to crash, as the workspace will limit you to 3 GB of downloaded models.
 
-# Task 1 - Find the Right Models
+##Task 1 - Find the Right Models
 
 Using the Pre-Trained Model list, determine which models could accomplish the following tasks (there may be some room here in determining which model to download):
 
-# Human Pose Estimation
-# Text Detection
-# Determining Car Type & Color
+--Human Pose Estimation
+--Text Detection
+--Determining Car Type & Color
  
 # Task 2 - Download the Models
 
