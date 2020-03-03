@@ -1,27 +1,32 @@
-Loading Pre-Trained Models¶
+# Loading Pre-Trained Models
+
 Make sure to click the button below before you get started to source the correct environment.
 
 In this exercise, you'll work to download and load a few of the pre-trained models available in the OpenVINO toolkit.
 
-First, you can navigate to the Pre-Trained Models list in a separate window or tab, as well as the page that gives all of the model names here.
+# First, you can navigate to the Pre-Trained Models list in a separate window or tab, as well as the page that gives all of the model names here.
 
 Your task here is to download the below three pre-trained models using the Model Downloader tool, as detailed on the same page as the different model names. Note that you do not need to download all of the available pre-trained models - doing so would cause your workspace to crash, as the workspace will limit you to 3 GB of downloaded models.
 
-Task 1 - Find the Right Models
+# Task 1 - Find the Right Models
+
 Using the Pre-Trained Model list, determine which models could accomplish the following tasks (there may be some room here in determining which model to download):
 
-Human Pose Estimation
-Text Detection
-Determining Car Type & Color
-Task 2 - Download the Models
+# Human Pose Estimation
+# Text Detection
+# Determining Car Type & Color
+ 
+# Task 2 - Download the Models
+
 Once you have determined which model best relates to the above tasks, use the Model Downloader tool to download them into the workspace for the following precision levels:
 
 Human Pose Estimation: All precision levels
 Text Detection: FP16 only
 Determining Car Type & Color: INT8 only
-Note: When downloading the models in the workspace, add the -o argument (along with any other necessary arguments) with /home/workspace as the output directory. The default download directory will not allow the files to be written there within the workspace, as it is a read-only directory.
 
-Task 3 - Verify the Downloads
+# Note: When downloading the models in the workspace, add the -o argument (along with any other necessary arguments) with /home/workspace as the output directory. The default download directory will not allow the files to be written there within the workspace, as it is a read-only directory.
+
+# Task 3 - Verify the Downloads
 You can verify the download of these models by navigating to: /home/workspace/intel (if you followed the above note), and checking whether a directory was created for each of the three models, with included subdirectories for each precision, with respective .bin and .xml for each model.
 
 Hint: Use the -h command with the Model Downloader tool if you need to check out the possible arguments to include when downloading specific models and precisions.
@@ -47,7 +52,7 @@ Note that each image is currently loaded as BGR with H, W, C order in the test.p
 
 When finished, you should be able to run the test.py file and pass all three tests.
 
-Deploy Your First Edge App
+# Deploy Your First Edge App
 Make sure to click the button below before you get started to source the correct environment.
 
 So far, you've downloaded some pre-trained models, handled their inputs, and learned how to handle outputs. In this exercise, you'll implement the handling of the outputs of our three models from before, and get to see inference actually performed by adding these models to some example edge applications.
@@ -56,14 +61,15 @@ There's a lot of code still involved behind the scenes here. With the Pre-Traine
 
 If you do want a sneak preview of some of the code that interfaces with the Inference Engine, you can check it out in inference.py. You'll work out of the handle_models.py file, as well as adding functions calls within the edge app in app.py.
 
-TODOs
+# TODOs
 In handle_models.py, you will need to implement handle_pose, handle_text, and handle_car.
 
 In app.py, first, you'll need to use the input shape of the network to call the preprocessing function. Then, you need to call handle_output with the appropriate model argument in order to get the right handling function. With that function, you can then feed the output of the inference request in in order to extract the output.
 
 Note that there is some additional post-processing done for you in create_output_image within app.py to help display the output back onto the input image.
 
-Testing the apps
+# Testing the apps
+
 To test your implementations, you can use app.py to run each edge application, with the following arguments:
 
 -t: The model type, which should be one of "POSE", "TEXT", or "CAR_META"
@@ -92,14 +98,14 @@ From there, find the Convert a TensorFlow* Model header in the documentation, an
 
 If the conversion is successful, the terminal should let you know that it generated an IR model. The locations of the .xml and .bin files, as well as execution time of the Model Optimizer, will also be output.
 
-Note: Converting the TF model will take a little over one minute in the workspace.
+# Note: Converting the TF model will take a little over one minute in the workspace.
 
 Hints & Troubleshooting
 Make sure to pay attention to the note in this section regarding the --reverse_input_channels argument. If you are unsure about this argument, you can read more here.
 
 There is additional documentation specific to converting models from TensorFlow's Object Detection Zoo here. You will likely need both the --tensorflow_use_custom_operations_config and --tensorflow_object_detection_api_pipeline_config arguments fed with their related files.
 
-Convert a Caffe Model
+# Convert a Caffe Model
 Make sure to click the button below before you get started to source the correct environment.
 
 In this exercise, you'll convert a Caffe Model into an Intermediate Representation using the Model Optimizer. You can find the related documentation here.
@@ -110,7 +116,7 @@ Follow the documentation above and feed in the Caffe model to the Model Optimize
 
 If the conversion is successful, the terminal should let you know that it generated an IR model. The locations of the .xml and .bin files, as well as execution time of the Model Optimizer, will also be output.
 
-Hints & Troubleshooting
+# Hints & Troubleshooting
 You will need to specify --input_proto if the .prototxt file is not named the same as the model.
 
 There is an important note in the documentation after the section Supported Topologies regarding Caffe models trained on ImageNet. If you notice poor performance in inference, you may need to specify mean and scale values in your arguments.
@@ -119,7 +125,7 @@ python /opt/intel/openvino/deployment_tools/model_optimizer/mo.py --input_model 
 Convert an ONNX Model
 Make sure to click the button below before you get started to source the correct environment.
 
-Exercise Instructions
+#  Exercise Instructions
 In this exercise, you'll convert an ONNX Model into an Intermediate Representation using the Model Optimizer. You can find the related documentation here.
 
 For this exercise, first download the bvlc_alexnet model from here. Use the tar -xvf command with the downloaded file to unpack it.
@@ -128,10 +134,10 @@ Follow the documentation above and feed in the ONNX model to the Model Optimizer
 
 If the conversion is successful, the terminal should let you know that it generated an IR model. The locations of the .xml and .bin files, as well as execution time of the Model Optimizer, will also be output.
 
-PyTorch models
+# PyTorch models
 Note that we will only cover converting directly from an ONNX model here. If you are interested in converting a PyTorch model using ONNX for use with OpenVINO, check out this link for the steps to do so. From there, you can follow the steps in the rest of this exercise once you have an ONNX model.
 
-Custom Layers
+# Custom Layers
 Make sure to click the button below before you get started to source the correct environment.
 
 This exercise is adapted from this repository.
@@ -148,7 +154,7 @@ As a function that calculates a value for the given value x, the cosh function i
 
 Move to the next page to continue.
 
-Build the Model
+# Build the Model
 First, export the below paths to shorten some of what you need to enter later:
 
 export CLWS=/home/workspace/cl_tutorial
@@ -223,7 +229,7 @@ cosh_kernel.xml
 Instructions on editing the template files are provided in later parts of this tutorial.
 For reference, or to copy to make the changes quicker, pre-edited template files are provided by the tutorial in the $CLT directory.
 
-Move to the next page to continue.
+he next page to continue.
 
 Using Model Optimizer to Generate IR Files Containing the Custom Layer
 We will now use the generated extractor and operation extensions with the Model Optimizer to generate the model IR files needed by the Inference Engine. The steps covered are:
